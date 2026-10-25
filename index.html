@@ -113,7 +113,6 @@ td .sub { font-size: 11.5px; margin-left: 4px; }
 .range .tick { position: absolute; top: -4px; width: 3px; height: 12px; margin-left: -1.5px; border-radius: 1px; background: var(--ink); }
 .empty td { text-align: center; color: var(--muted); padding: 28px; white-space: normal; }
 
-footer { font-size: 13px; color: var(--muted); display: grid; gap: 4px; max-width: 75ch; }
 
 @media (max-width: 720px) {
   .facts { grid-template-columns: repeat(2, auto); }
@@ -160,14 +159,6 @@ footer { font-size: 13px; color: var(--muted); display: grid; gap: 4px; max-widt
       </table>
     </div>
   </section>
-
-  <footer>
-    <span>Source: NSE market-watch export for NIFTY MICROCAP 250 and NSE's full bhavcopy, 23 Oct 2026. Close is NSE's official closing price (weighted average of the last 30 minutes), so it can differ from the last trade. Value is turnover in ₹ crore. Click a symbol to open its quote page on NSE.</span>
-    <span>Delivery % is the share of the day's volume settled by delivery rather than squared off intraday. VWAP is the day's volume-weighted average price; the small figure is the close's distance from it. Avg trade is turnover ÷ number of trades. Stocks marked BE or BZ trade in the trade-to-trade segment, where every trade is delivered.</span>
-    <span>Volatility comes from NSE Clearing's daily volatility file (CMVOLT) for the same date. Annual vol is daily vol × √365.</span>
-    <span>P/E comes from NSE's daily PE ratio report for the same date. A dash means NSE published no P/E for that stock (usually a loss-making or recently listed company).</span>
-    <span id="note"></span>
-  </footer>
 </div>
 
 <script type="text/csv" id="raw">
@@ -1253,8 +1244,6 @@ ZAGGLE,EQ,156.81,150.36,150.89,1456259,2197.37,19159,773177,53.09
   document.getElementById('breadthBar').innerHTML =
     `<span class="a" style="flex:${adv}"></span><span class="u" style="flex:${unc}"></span><span class="d" style="flex:${dec}"></span>`;
 
-  if (dupes) document.getElementById('note').textContent =
-    `The export listed ${dupes} symbol${dupes > 1 ? 's' : ''} twice (TARC); duplicates are shown once.`;
 
   // ---- table ----
   const cols = [
